@@ -1,9 +1,9 @@
-import Lampe 
+import main
 
 def test():
     import doctest
     # doctest.IGNORE_EXCEPTION_DETAIL
-    doctest.testmod(Lampe)
+    doctest.testmod(main)
 
     print("just test doctest")
 
