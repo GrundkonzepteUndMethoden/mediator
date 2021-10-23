@@ -1,10 +1,9 @@
-# Gruppe 4 - Verhaltensmuster - Mediator
-Repository mit Quellcode für den Vortrag über das Adapter Pattern
+# Gruppe 4 - Erzeugungsmuster - Prototyp
+Repository mit Quellcode für den Vortrag über das Prototyp Pattern
 
 Inhalt des Repositorys:
-- Beispieldateien zum Mediator Vortrag
-- Datei mit CI/CD Pipeline zum Ausführen der Testcases
+- Beispieldateien zum Protoyp Vortrag
+- Datei mit CI/CD Pipeline zum ausführen der Testcases
 - Testfälle für die wichtigsten Klassen
 
-Mit dem Mediator sind die Abhängigkeiten zwischen den Objekten Eingang, Fenster, Heizung und Lampe geregelt.
-Die Idee dahinter ist es, dass beim Einschalten der Heizung dass Fenster geschlossen werden soll, beim Öffnen des Fensters die Heizung und die Lampe ausgeschaltet werden soll, beim Verlassen des Hauses Lampe und Heizug ausgeschaltet und das Fenster geschlossen werden soll und beim Betreten des Hauses die Lampe eingeschaltet werden soll.
+**!!!Tests wurden nachträchlich hinzugefügt, um auszuprobieren wie die Docstrings funktionieren!!!**
