@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from Mediator import MediatorStub
 
 class IHeizung(ABC):
 
@@ -14,6 +14,30 @@ class IHeizung(ABC):
 
 
 class Heizung(IHeizung):
+    """
+    >>> mediatorStub = MediatorStub()
+    >>> heizung = Heizung(mediatorStub)
+    >>> type(heizung)
+    <class 'Heizung.Heizung'>
+
+    Test an() of Heizung mit state=0
+    >>> heizung.an()
+    Notification erhalten, Event: ON
+    Heizung heizt jetzt
+
+    Test an() of Heizung mit state=1
+    >>> heizung.an()
+    Heizung heizt bereits
+
+    Test aus() of Heizung mit state=1
+    >>> heizung.aus()
+    Heizung heizt jetzt nicht mehr, keine Benachrichtigung nötig
+
+    Test aus() of Heizung mit state=0
+    >>> heizung.aus()
+    Heizung ist schon aus
+    """
+
     def __init__(self, mediator):
         self.mediator = mediator
         self.state = 0

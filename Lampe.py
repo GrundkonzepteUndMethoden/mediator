@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from Mediator import MediatorStub
 
 
 class ILampe(ABC):
@@ -13,6 +14,30 @@ class ILampe(ABC):
 
 
 class Lampe(ILampe):
+    """ 
+    Test instanciation of Lampe
+    >>> mediatorStub = MediatorStub()
+    >>> lampe = Lampe(mediatorStub)
+    >>> type(lampe)
+    <class 'Lampe.Lampe'>
+
+    Test an() of Lampe mit state=0
+    >>> lampe.an()
+    Notification erhalten, Event: ON
+    Lampe leuchtet jetzt
+
+    Test an() of Lampe mit state=1
+    >>> lampe.an()
+    Lampe leuchtet bereits
+
+    Test aus() of Lampe mit state=1
+    >>> lampe.aus()
+    Lampe leuchtet jetzt nicht mehr, keine Benachrichtigung nötig
+
+    Test aus() of Lampe mit state=0
+    >>> lampe.aus()
+    Lampe ist schon ausgeschaltet
+    """
 
     def __init__(self, mediator):
         self.mediator = mediator

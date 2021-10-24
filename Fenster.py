@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from Mediator import MediatorStub
 
 class IFenster(ABC):
 
@@ -14,6 +14,31 @@ class IFenster(ABC):
 
 
 class Fenster(IFenster):
+    """ 
+    Test instanciation of Fenster
+    >>> mediatorStub = MediatorStub()
+    >>> fenster = Fenster(mediatorStub)
+    >>> type(fenster)
+    <class 'Fenster.Fenster'>
+
+    Test auf() of Fenster mit state=0
+    >>> fenster.auf()
+    Notification erhalten, Event: OPEN
+    Fenster ist jetzt geöffnet
+
+    Test auf() of Fenster mit state=1
+    >>> fenster.auf()
+    Fenster ist bereits geöffnet
+
+    Test zu() of Fenster mit state=1
+    >>> fenster.zu()
+    Fenster ist jetzt geschlossen, keine Benachrichtung nötig
+
+    Test zu() of Fenster mit state=0
+    >>> fenster.zu()
+    Fenster ist bereits geschlossen
+    """
+
     def __init__(self, mediator):
         self.mediator = mediator
         self.state = 0
