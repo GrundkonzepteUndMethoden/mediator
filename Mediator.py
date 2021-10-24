@@ -5,6 +5,12 @@ class IMediator(ABC):
     def notify(self, sender, event):
         pass
 
+
+#TestStub für die Unit Tests der Components
+class MediatorStub(IMediator):
+    def notify(self, sender, event):
+        print("Notification erhalten, Event: " + event)
+
 class Mediator(IMediator):
     # nicht in der init-Methode, da es sonst einen Zirkelbezug gibt
     # => Komponenten brauchen Mediator-Referenz, Mediator braucht 
