@@ -37,6 +37,7 @@ class Heizung(IHeizung):
         else: 
             print("Heizung ist schon aus")
 
+#TestStub für die Unit Tests des Mediators
 class HeizungStub(IHeizung):
     def an(self):
         print("Befehl erhalten: Heizung einschalten")

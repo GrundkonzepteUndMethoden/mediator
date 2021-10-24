@@ -16,20 +16,51 @@ class Mediator(IMediator):
     # => Komponenten brauchen Mediator-Referenz, Mediator braucht 
     # Komponenten-Referenzen
     """
-    Test instanciation of Mediator
+    Test instanciation of Mediator 
+    >>> from Eingang import EingangStub
+    >>> from Heizung import HeizungStub
+    >>> from Fenster import FensterStub
+    >>> from Lampe import LampeStub
+    >>> eingangStub = EingangStub()
+    >>> heizungStub = HeizungStub()
+    >>> fensterStub = FensterStub()
+    >>> lampeStub = LampeStub()
+
     >>> mediator = Mediator()
+    >>> mediator.afterInit(heizungStub, fensterStub, eingangStub, lampeStub)
+
     >>> type(mediator)
     <class 'Mediator.Mediator'>
 
-    Test betreten() of Eingang
-    >>> eingang.betreten()
-    Notification erhalten, Event: ENTER
-    Das smartHome wurde betreten
+    Test notify(eingang, "ENTER") of Mediator
+    >>> mediator.notify(eingangStub, "ENTER")
+    Mediator handled Haus betreten
+    Befehl erhalten: Lampe einschalten
 
-    Test verlassen() of Eingang
-    >>> eingang.verlassen()
-    Notification erhalten, Event: EXIT
-    Das smartHome wurde verlassen
+    Test notify(eingang, "EXIT") of Mediator
+    >>> mediator.notify(eingangStub, "EXIT")
+    Mediator handled Haus verlassen
+    Befehl erhalten: Lampe ausschalten
+    Befehl erhalten: Fenster schließen
+    Befehl erhalten: Heizung ausschalten
+    
+
+    Test notify(heizung, "ON") of Mediator
+    >>> mediator.notify(heizungStub, "ON")
+    Mediator handled Heizung einschalten
+    Befehl erhalten: Fenster schließen
+    
+
+    Test notify(fenster, "OPEN") of Mediator
+    >>> mediator.notify(fensterStub, "OPEN")
+    Mediator handled Fenster öffnen
+    Befehl erhalten: Heizung ausschalten
+    Befehl erhalten: Lampe ausschalten
+
+    Test notify(lampe, "ON") of Mediator
+    >>> mediator.notify(lampeStub, "ON")
+    Mediator handled Lampe einschalten
+    Befehl erhalten: Fenster schließen
     """
 
     def afterInit(self, heizung, fenster, eingang, lampe):

@@ -8,7 +8,7 @@ class IEingang(ABC):
         pass
 
     @abstractmethod
-    def aus(self):
+    def verlassen(self):
         pass
 
 
@@ -42,11 +42,12 @@ class Eingang(IEingang):
         self.mediator.notify(self, "EXIT")
         print("Das smartHome wurde verlassen")
 
+#TestStub für die Unit Tests des Mediators
 class EingangStub(IEingang):
-    def an(self):
+    def betreten(self):
         pass
 
-    def aus(self):
+    def verlassen(self):
         pass
 
 

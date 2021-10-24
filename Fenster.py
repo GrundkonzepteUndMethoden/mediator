@@ -36,9 +36,10 @@ class Fenster(IFenster):
         else: 
             print("Fenster ist bereits geschlossen")
 
+#TestStub für die Unit Tests des Mediators
 class FensterStub(IFenster):
-    def an(self):
+    def auf(self):
         print("Befehl erhalten: Fenster öffnen")
 
-    def aus(self):
+    def zu(self):
         print("Befehl erhalten: Fenster schließen")

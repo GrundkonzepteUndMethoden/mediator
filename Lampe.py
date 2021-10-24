@@ -36,7 +36,7 @@ class Lampe(ILampe):
         else:
             print("Lampe ist schon ausgeschaltet")
 
-            
+#TestStub für die Unit Tests des Mediators
 class LampeStub(ILampe):
     def an(self):
         print("Befehl erhalten: Lampe einschalten")
