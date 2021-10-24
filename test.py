@@ -1,12 +1,18 @@
-from Eingang import Eingang
-import main
 import Eingang
+import Heizung
+import Fenster
+import Lampe
+import Mediator
+
 
 def test():
     import doctest
     # doctest.IGNORE_EXCEPTION_DETAIL
-    doctest.testmod(main)
     doctest.testmod(Eingang)
+    doctest.testmod(Heizung)
+    doctest.testmod(Fenster)
+    doctest.testmod(Lampe)
+    doctest.testmod(Mediator)
 
     print("just test doctest")
 

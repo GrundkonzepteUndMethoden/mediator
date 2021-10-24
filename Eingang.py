@@ -1,5 +1,18 @@
+from abc import abstractmethod, ABC
 from Mediator import MediatorStub
-class Eingang():
+
+
+class IEingang(ABC):
+    @abstractmethod
+    def betreten(self):
+        pass
+
+    @abstractmethod
+    def verlassen(self):
+        pass
+
+
+class Eingang(IEingang):
     """ 
     Test instanciation of Eingang
     >>> mediatorStub = MediatorStub()
@@ -28,5 +41,15 @@ class Eingang():
     def verlassen(self):
         self.mediator.notify(self, "EXIT")
         print("Das smartHome wurde verlassen")
+
+#TestStub für die Unit Tests des Mediators
+class EingangStub(IEingang):
+    def betreten(self):
+        pass
+
+    def verlassen(self):
+        pass
+
+
 
 
