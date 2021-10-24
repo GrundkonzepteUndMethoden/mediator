@@ -15,6 +15,22 @@ class Mediator(IMediator):
     # nicht in der init-Methode, da es sonst einen Zirkelbezug gibt
     # => Komponenten brauchen Mediator-Referenz, Mediator braucht 
     # Komponenten-Referenzen
+    """
+    Test instanciation of Mediator
+    >>> mediator = Mediator()
+    >>> type(mediator)
+    <class 'Mediator.Mediator'>
+
+    Test betreten() of Eingang
+    >>> eingang.betreten()
+    Notification erhalten, Event: ENTER
+    Das smartHome wurde betreten
+
+    Test verlassen() of Eingang
+    >>> eingang.verlassen()
+    Notification erhalten, Event: EXIT
+    Das smartHome wurde verlassen
+    """
 
     def afterInit(self, heizung, fenster, eingang, lampe):
         self.heizung = heizung

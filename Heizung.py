@@ -1,6 +1,19 @@
+from abc import ABC, abstractmethod
 
 
-class Heizung():
+class IHeizung(ABC):
+
+    @abstractmethod
+    def an(self):
+        pass
+
+    @abstractmethod
+    def aus(self):
+        pass
+
+
+
+class Heizung(IHeizung):
     def __init__(self, mediator):
         self.mediator = mediator
         self.state = 0
@@ -24,3 +37,9 @@ class Heizung():
         else: 
             print("Heizung ist schon aus")
 
+class HeizungStub(IHeizung):
+    def an(self):
+        print("Befehl erhalten: Heizung einschalten")
+
+    def aus(self):
+        print("Befehl erhalten: Heizung ausschalten")

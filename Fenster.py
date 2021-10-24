@@ -1,5 +1,19 @@
+from abc import ABC, abstractmethod
 
-class Fenster():
+
+class IFenster(ABC):
+
+    @abstractmethod
+    def auf(self):
+        pass
+
+    @abstractmethod
+    def zu(self):
+        pass
+
+
+
+class Fenster(IFenster):
     def __init__(self, mediator):
         self.mediator = mediator
         self.state = 0
@@ -22,4 +36,9 @@ class Fenster():
         else: 
             print("Fenster ist bereits geschlossen")
 
+class FensterStub(IFenster):
+    def an(self):
+        print("Befehl erhalten: Fenster öffnen")
 
+    def aus(self):
+        print("Befehl erhalten: Fenster schließen")

@@ -1,4 +1,18 @@
-class Lampe():
+from abc import ABC, abstractmethod
+
+
+class ILampe(ABC):
+
+    @abstractmethod
+    def an(self):
+        pass
+
+    @abstractmethod
+    def aus(self):
+        pass
+
+
+class Lampe(ILampe):
 
     def __init__(self, mediator):
         self.mediator = mediator
@@ -21,3 +35,11 @@ class Lampe():
             print("Lampe leuchtet jetzt nicht mehr, keine Benachrichtigung nötig")
         else:
             print("Lampe ist schon ausgeschaltet")
+
+            
+class LampeStub(ILampe):
+    def an(self):
+        print("Befehl erhalten: Lampe einschalten")
+
+    def aus(self):
+        print("Befehl erhalten: Lampe ausschalten")
